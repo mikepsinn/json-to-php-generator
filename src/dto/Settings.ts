@@ -21,6 +21,7 @@ export default class Settings {
     public isFluentSetter = true;
 
     public addConstructor = true;
+    public populateWithForEach = false;
     public finalClasses = false;
     public allPropertiesNullable = false;
 
@@ -28,6 +29,8 @@ export default class Settings {
     public jsonIsArray = true;
 
     public docblock = PhpDocblock.Necessary;
+    public download = true;
+    public alreadyDownloaded: string[] = [];
 
     public supportsTypedProperties(): boolean {
         return this.supports([PhpVersion.PHP74, PhpVersion.PHP80]);

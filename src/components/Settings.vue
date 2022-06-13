@@ -50,6 +50,8 @@
 
                 <Checkbox label="Add constructor" v-model="settings.addConstructor" />
 
+                <Checkbox label="Populate constructor with foreach" v-model="settings.populateWithForEach" />
+
                 <Checkbox label="Add getters" v-model="settings.addGetters" />
 
                 <div class="flex">
