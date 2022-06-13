@@ -63,6 +63,8 @@
                   />
 
                 </div>
+
+                <Checkbox label="Download files instead of display" v-model="settings.download" />
             </FormGroup>
         </TabContent>
 
@@ -121,7 +123,7 @@
                                 v-model="settings.propertyDocblock"
                                 :options="docblockOptions"
                         />
-                    </FormGroup>  
+                    </FormGroup>
                 </div>
                 <div class="w-full md:w-1/3 mb-2">
                     <FormGroup>
@@ -135,7 +137,7 @@
                     </FormGroup>
                 </div>
             </div>
-            
+
             <div class="flex">
                 <FormGroup class="w-full md:w-1/3">
                     <Label for="method-constructor-docblock">

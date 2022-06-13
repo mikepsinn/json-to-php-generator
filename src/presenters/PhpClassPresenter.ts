@@ -98,6 +98,26 @@ export default class PhpClassPresenter {
                 .join('\n');
         }
 
+        if(this.settings.download) {
+            if(this.settings.alreadyDownloaded.includes(content) || this.settings.alreadyDownloaded.includes(this.getClassName())) {
+                return '';
+            }
+            this.settings.alreadyDownloaded.push(content);
+            this.settings.alreadyDownloaded.push(this.getClassName());
+            // credit: https://www.bitdegree.org/learn/javascript-download
+            const filename = this.getClassName()+'.php';
+            const downloadElement = document.createElement('a');
+            downloadElement.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
+            downloadElement.setAttribute('download', filename);
+
+            downloadElement.style.display = 'none';
+            document.body.appendChild(downloadElement);
+
+            downloadElement.click();
+            document.body.removeChild(downloadElement);
+            return '// Add '+filename+' to constructor...';
+        }
+
         return content;
     }
 }
